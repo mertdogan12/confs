@@ -43,8 +43,8 @@ set cursorline
 highlight clear CursorLine
 highlight CursorLineNR ctermbg=blue
 
-set tabstop=5 softtabstop=5
-set shiftwidth=5
+set tabstop=4 softtabstop=4
+set shiftwidth=4
 set expandtab
 set smartindent
 
@@ -54,6 +54,10 @@ set nu
 set nowrap
 set incsearch
 set scrolloff=8
+
+tnoremap <C-q> <C-\><C-n>
+nnoremap <leader>sh :sp<CR>
+nnoremap <leader>sv :vsp<CR>
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim

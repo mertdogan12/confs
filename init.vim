@@ -59,6 +59,7 @@ set splitbelow
 set splitright
 
 tnoremap <C-q> <C-\><C-n>
+nnoremap <leader>tm :terminal<CR>
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>

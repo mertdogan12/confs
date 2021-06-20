@@ -23,8 +23,6 @@ nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
-let g:python3_host_prog = 'C:/Users/mert/AppData/Local/Programs/Python/Python39/python.exe'
-
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 let g:coc_global_extensions = [
@@ -35,8 +33,7 @@ let g:coc_global_extensions = [
   \ 'coc-prettier', 
   \ 'coc-json', 
   \ 'coc-omnisharp',
-  \ 'coc-java',
-  \ 'coc-html'
+  \ 'coc-java'
   \ ]
 
 " Use `:Format` to format current buffer

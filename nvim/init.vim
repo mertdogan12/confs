@@ -1,6 +1,5 @@
 "luna Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
-
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -56,6 +55,7 @@ highlight CursorLineNr guifg=#919191 guibg=#2d2d2e
 highlight LineNr guifg=#6e6e6e
 
 set guifont=Inconsolata-dz\ for\ Powerline\ dz
+set noshowmode
 
 set tabstop=4 softtabstop=4
 set shiftwidth=4

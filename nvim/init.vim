@@ -1,4 +1,4 @@
-" Specify a directory for plugins
+"luna Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -9,6 +9,9 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'folke/tokyonight.nvim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
      
@@ -23,9 +26,14 @@ nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
-let g:python3_host_prog = 'C:/Users/mert/AppData/Local/Programs/Python/Python39/python.exe'
-
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+let g:airline_theme='luna'
+
+let g:tokyonight_terminal_colors = "true"
+let g:tokyonight_transparent = "true"
+
+colorscheme tokyonight
 
 let g:coc_global_extensions = [
   \ 'coc-snippets',
@@ -44,7 +52,10 @@ command! -nargs=0 Format :call CocAction('format')
 
 set cursorline
 highlight clear CursorLine
-highlight CursorLineNR ctermbg=blue
+highlight CursorLineNr guifg=#919191 guibg=#2d2d2e
+highlight LineNr guifg=#6e6e6e
+
+set guifont=Inconsolata-dz\ for\ Powerline\ dz
 
 set tabstop=4 softtabstop=4
 set shiftwidth=4
@@ -81,9 +92,6 @@ set hidden
 " Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup
-
-" Give more space for displaying messages.
-set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.

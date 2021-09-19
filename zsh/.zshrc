@@ -1,11 +1,17 @@
+if [ "$TMUX" = "" ]; then tmux new-session -A -s cmd -n cmd; fi
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [ "$TMUX" = "" ]; then tmux new-session -A -s main; fi
-
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
+_comp_options+=(globdots)
+
+# vi mode
+bindkey -v
+export KEYTIMEOUT=1
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -80,44 +86,38 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	git
-	zsh-autosuggestions
+    git
+    zsh-autosuggestions
 	zsh-syntax-highlighting
+    zsh-vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-yanktoclipboard(){
-    echo $BUFFER | xsel -i -b
-}
-pastefromclipboard(){
-    RBUFFER=$(xsel -o -b </dev/null)$RBUFFER
-}
-zle -N yanktoclipboard
-zle -N pastefromclipboard
-bindkey -a 'yy' yanktoclipboard
-bindkey -a 'p' pastefromclipboard
 
 # export MANPATH="/usr/local/man:$MANPATH"
 export PATH=$PATH:$HOME/.dotnet
+export PATH=$PATH:$HOME/jdk-16.0.2/bin
+export JAVA_HOME=$HOME/jdk-16.0.2
 export DOTNET_ROOT=$HOME/.dotnet
-export PATH=$PATH:$HOME/apache-maven-3.8.1/bin
-export PATH=$PATH:/usr/lib/jvm/jdk-16.0.1/bin
-export JAVA_HOME=/usr/lib/jvm/jdk-16.0.1
-export JDK_HOME=/usr/lib/jvm/jdk-16.0.1
-export PATH=$PATH:/opt/gradle/gradle-7.0/bin
-export PATH=$PATH:$HOME/bitcoin-0.21.0/bin
+export ASHOST=cluster0.kjjcb.mongodb.net
+export ASPORT=27017
+export ASDATABASE=authServer
+export ASUSER=mert
+export ASPW=k75TRT4dw7JBChTN
+export ASURL="+srv://<user>:<password>@<host>/<database>?retryWrites=true&w=majority"
+export ASSECRET=asölkfjaslkfjsalfjösdalkfjsa
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+ if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vi'
+ else
+   export EDITOR='nvim'
+ fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -131,7 +131,9 @@ export PATH=$PATH:$HOME/bitcoin-0.21.0/bin
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# source /home/mert/fzf-tab-completion/zsh/fzf-zsh-completion.sh
+# bindkey '^I' fzf_completion
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /home/mert/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

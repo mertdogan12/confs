@@ -46,6 +46,8 @@ let g:coc_global_extensions = [
   \ 'coc-html'
   \ ]
 
+autocmd FileType scss setl iskeyword+=@-@
+
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
 

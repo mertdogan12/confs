@@ -9,7 +9,6 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH="/home/mert/.oh-my-zsh"
 
@@ -108,6 +107,14 @@ export JAVA_HOME=/usr/lib/jvm/jdk-16.0.1
 export JDK_HOME=/usr/lib/jvm/jdk-16.0.1
 export PATH=$PATH:/opt/gradle/gradle-7.0/bin
 export PATH=$PATH:$HOME/bitcoin-0.21.0/bin
+export GIT_TERMINAL_PROMPT=1
+export ASHOST=cluster0.kjjcb.mongodb.net
+export ASPORT=27017
+export ASDATABASE=authServer
+export ASUSER=mert
+export ASPW=cLnCnTddNA7pK4um
+export ASURL="mongodb+srv://<user>:<password>@<host>/<database>?retryWrites=true&w=majority"
+export ASSECRET=SlR4Z1lFZXN3MjN6RGhOd2dyYlU5VGE=
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8

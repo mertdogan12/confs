@@ -12,6 +12,8 @@
     "java",
     "xml",
     "yml",
-    "html"
+    "html",
+    "go",
+    "css"
   ]
 }

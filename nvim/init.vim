@@ -43,7 +43,9 @@ let g:coc_global_extensions = [
   \ 'coc-json', 
   \ 'coc-omnisharp',
   \ 'coc-java',
-  \ 'coc-html'
+  \ 'coc-html',
+  \ 'coc-go',
+  \ "coc-css"
   \ ]
 
 " Use `:Format` to format current buffer

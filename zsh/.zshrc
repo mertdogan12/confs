@@ -97,19 +97,13 @@ export PATH=$PATH:$HOME/jdk-16.0.2/bin
 export JAVA_HOME=$HOME/jdk-16.0.2
 export DOTNET_ROOT=$HOME/.dotnet
 export PATH=$PATH:$HOME/apache-maven-3.8.1/bin
-export PATH=$PATH:/usr/lib/jvm/jdk-16.0.1/bin
-export JAVA_HOME=/usr/lib/jvm/jdk-16.0.1
-export JDK_HOME=/usr/lib/jvm/jdk-16.0.1
 export PATH=$PATH:/opt/gradle/gradle-7.0/bin
-export PATH=$PATH:$HOME/bitcoin-0.21.0/bin
 export GIT_TERMINAL_PROMPT=1
-export ASHOST=cluster0.kjjcb.mongodb.net
-export ASPORT=27017
-export ASDATABASE=authServer
-export ASUSER=mert
-export ASPW=cLnCnTddNA7pK4um
-export ASURL="mongodb+srv://<user>:<password>@<host>/<database>?retryWrites=true&w=majority"
-export ASSECRET=SlR4Z1lFZXN3MjN6RGhOd2dyYlU5VGE=
+export PATH=$PATH:/usr/local/go/bin
+
+# i3 vars
+export WALLPAPER=$HOME/mert/Bilder/background.jpg
+export SCREENFILE=$HOME/mert/.screenlayout/layout.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -131,4 +125,3 @@ export ASSECRET=SlR4Z1lFZXN3MjN6RGhOd2dyYlU5VGE=
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source /home/mert/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

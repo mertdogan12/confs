@@ -14,7 +14,8 @@
     "yml",
     "html",
     "go",
-    "css"
+    "css",
+    "cpp"
   ],
   "languageserver": {
     "ccls": {

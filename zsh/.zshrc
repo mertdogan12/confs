@@ -92,15 +92,6 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export PATH=$PATH:$HOME/.dotnet
-export PATH=$PATH:$HOME/jdk-16.0.2/bin
-export JAVA_HOME=$HOME/jdk-16.0.2
-export DOTNET_ROOT=$HOME/.dotnet
-export PATH=$PATH:$HOME/apache-maven-3.8.1/bin
-export PATH=$PATH:/opt/gradle/gradle-7.0/bin
-export GIT_TERMINAL_PROMPT=1
-export PATH=$PATH:/usr/local/go/bin
-
 # i3 vars
 export WALLPAPER=$HOME/mert/Bilder/background.jpg
 export SCREENFILE=$HOME/mert/.screenlayout/layout.sh

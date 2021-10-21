@@ -11,7 +11,6 @@ _comp_options+=(globdots)
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH="/home/mert/.oh-my-zsh"
 
@@ -93,17 +92,9 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export PATH=$PATH:$HOME/.dotnet
-export PATH=$PATH:$HOME/jdk-16.0.2/bin
-export JAVA_HOME=$HOME/jdk-16.0.2
-export DOTNET_ROOT=$HOME/.dotnet
-export ASHOST=cluster0.kjjcb.mongodb.net
-export ASPORT=27017
-export ASDATABASE=authServer
-export ASUSER=mert
-export ASPW=k75TRT4dw7JBChTN
-export ASURL="+srv://<user>:<password>@<host>/<database>?retryWrites=true&w=majority"
-export ASSECRET=asölkfjaslkfjsalfjösdalkfjsa
+# i3 vars
+export WALLPAPER=$HOME/mert/Bilder/background.jpg
+export SCREENFILE=$HOME/mert/.screenlayout/layout.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -125,4 +116,3 @@ export ASSECRET=asölkfjaslkfjsalfjösdalkfjsa
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source /home/mert/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

@@ -44,7 +44,8 @@ let g:coc_global_extensions = [
   \ 'coc-omnisharp',
   \ 'coc-java',
   \ 'coc-html',
-  \ 'coc-go'
+  \ 'coc-go',
+  \ "coc-css"
   \ ]
 
 autocmd FileType scss setl iskeyword+=@-@

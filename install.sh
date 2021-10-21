@@ -32,6 +32,8 @@ while read -p "Do you want to install ohmyzsh and some plugins [y/N]: " yn; do
             # Links the confs
             echo "Links the confs"
             echo "=================="
+            rm ~/.zshrc
+            rm ~/.p10k.zsh
             ln zsh/.zshrc ~/.zshrc
             ln zsh/.p10k.zsh ~/.p10k.zsh
             echo "==================" 
@@ -61,6 +63,8 @@ while read -p "Do you want to install Neovim and vim plug [y/N]: " yn; do
                 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
             # Links tht confs
+            rm ~/.config/nvim/init.vim
+            rm ~/.config/nvim/coc-settings.json
             ln nvim/init.vim ~/.config/nvim/init.vim
             ln nvim/coc-settings.json ~/.config/nvim/coc-settings.json
             echo "==================" 

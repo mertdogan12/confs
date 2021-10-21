@@ -62,6 +62,9 @@ while read -p "Do you want to install Neovim and vim plug [y/N]: " yn; do
             sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
                 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
+            # Installing pip package
+            pip install neovim
+
             # Links tht confs
             rm ~/.config/nvim/init.vim
             rm ~/.config/nvim/coc-settings.json

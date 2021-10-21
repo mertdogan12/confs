@@ -3,8 +3,7 @@
 sudo apt-get install zsh
 
 # Sets default shell
-while true; do
-    read -p "Do you want to make zsh you default shell? [y/N]: " yn
+while read -p "Do you want to make zsh you default shell? [y/N]: " yn; do
     case $yn in
         y ) chsh -s $(which zsh); break;;
         N ) break;;
@@ -13,9 +12,8 @@ while true; do
 done
 
 # zsh config
-while true; do
-    read -p "Do you want to install ohmyzsh and some plugins [y/N]: " $yn1
-    case $yn1 in
+while read -p "Do you want to install ohmyzsh and some plugins [y/N]: " yn; do
+    case $yn in
         y ) 
             # ohmyzsh installation
             echo "Installing ohmyzsh"
@@ -23,16 +21,16 @@ while true; do
             sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
             echo "=================="
 
-            echo "Installing plugins"
             # Installing plugins
+            echo "Installing plugins"
             echo "=================="
             git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
             git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
             git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
             echo "=================="
     
-            echo "Links the confs"
             # Links the confs
+            echo "Links the confs"
             echo "=================="
             ln zsh/.zshrc ~/.zshrc
             ln zsh/.p10k.zsh ~/.p10k.zsh
@@ -43,25 +41,9 @@ while true; do
     esac
 done
 
-while true; do
-    read -p "Test test" $yn2
-    case $yn2 in
-        y ) 
-            echo "Test test"
-            echo "Test test"
-            echo "Test test"
-            echo "Test test"
-            echo "Test test"
-            break ;;
-        N ) break; echo $yn;;
-        * ) echo "N to exit"; echo $yn;;
-    esac
-done
-
 # Neovim
-while true; do
-    read -p "Do you want to install Neovim and vim plug [y/N]: " $yn3
-    case $yn3 in
+while read -p "Do you want to install Neovim and vim plug [y/N]: " yn; do
+    case $yn in
         y ) 
             echo "Installing Neovim"
             # Installing neovim

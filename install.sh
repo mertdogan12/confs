@@ -65,6 +65,7 @@ while read -p "Do you want to install Neovim and vim plug [y/N]: " yn; do
             # Links tht confs
             rm ~/.config/nvim/init.vim
             rm ~/.config/nvim/coc-settings.json
+            mkdir -p ~/.config/nvim
             ln nvim/init.vim ~/.config/nvim/init.vim
             ln nvim/coc-settings.json ~/.config/nvim/coc-settings.json
             echo "==================" 

@@ -57,7 +57,7 @@ while read -p "Do you want to install Neovim and vim plug [y/N]: " yn; do
             echo "Installing Neovim"
             # Installing neovim
             echo "=================="
-	    sudo pacman -S base-devel cmake unzip ninja tree-sitter curl
+	        sudo pacman -S base-devel cmake unzip ninja tree-sitter curl
             git clone https://github.com/neovim/neovim
             cd neovim && make -j4
             sudo make install

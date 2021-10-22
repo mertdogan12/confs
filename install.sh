@@ -27,6 +27,9 @@ while read -p "Do you want to install ohmyzsh and some plugins [y/N]: " yn; do
             git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
             git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
             git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+            # Install fzf
+            git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf; ~/.fzf/install
             echo "=================="
     
             # Links the confs
@@ -34,8 +37,11 @@ while read -p "Do you want to install ohmyzsh and some plugins [y/N]: " yn; do
             echo "=================="
             rm ~/.zshrc
             rm ~/.p10k.zsh
-            ln zsh/.zshrc ~/.zshrc
-            ln zsh/.p10k.zsh ~/.p10k.zsh
+            ln ./zsh/.zshrc ~/.zshrc
+            ln ./zsh/.p10k.zsh ~/.p10k.zsh
+
+            # Source .zshrc
+            source ~/.zshrc
             echo "==================" 
             break ;;
         N ) break; echo $yn;;
@@ -69,8 +75,8 @@ while read -p "Do you want to install Neovim and vim plug [y/N]: " yn; do
             rm ~/.config/nvim/init.vim
             rm ~/.config/nvim/coc-settings.json
             mkdir -p ~/.config/nvim
-            ln nvim/init.vim ~/.config/nvim/init.vim
-            ln nvim/coc-settings.json ~/.config/nvim/coc-settings.json
+            ln ./nvim/init.vim ~/.config/nvim/init.vim
+            ln ./nvim/coc-settings.json ~/.config/nvim/coc-settings.json
             echo "==================" 
             break ;;
         N ) break;;

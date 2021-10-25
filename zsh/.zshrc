@@ -90,6 +90,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+source ~/vars.env
 
 # export MANPATH="/usr/local/man:$MANPATH"
 # i3 vars

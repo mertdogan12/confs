@@ -90,6 +90,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+source ~/vars.env
 
 # export MANPATH="/usr/local/man:$MANPATH"
 # i3 vars
@@ -116,3 +117,5 @@ export SCREENFILE=$HOME/mert/.screenlayout/layout.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

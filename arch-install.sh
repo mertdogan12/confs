@@ -1,6 +1,6 @@
 #!/bin/bash
 # installing zsh
-sudo apt-get install zsh
+sudo pacman -S zsh
 
 # Sets default shell
 while read -p "Do you want to make zsh you default shell? [y/N]: " yn; do
@@ -30,6 +30,7 @@ while read -p "Do you want to install ohmyzsh and some plugins [y/N]: " yn; do
 
             # Install fzf
             git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf; ~/.fzf/install
+
             echo "=================="
     
             # Links the confs
@@ -56,7 +57,7 @@ while read -p "Do you want to install Neovim and vim plug [y/N]: " yn; do
             echo "Installing Neovim"
             # Installing neovim
             echo "=================="
-            sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
+	        sudo pacman -S base-devel cmake unzip ninja tree-sitter curl
             git clone https://github.com/neovim/neovim
             cd neovim && make -j4
             sudo make install

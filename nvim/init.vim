@@ -11,6 +11,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'folke/tokyonight.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'davidgranstrom/nvim-markdown-preview'
 
 call plug#end()
      

@@ -1,6 +1,6 @@
 #!/bin/bash
 # installing zsh
-sudo apt-get install zsh
+sudo apt-get install zsh nodejs python3 python3-pip npm
 
 # Sets default shell
 while read -p "Do you want to make zsh you default shell? [y/N]: " yn; do
@@ -70,11 +70,12 @@ while read -p "Do you want to install Neovim and vim plug [y/N]: " yn; do
 
             # Installing pip package
             pip install neovim
+	    npm i neovim
 
             # Links tht confs
             rm ~/.config/nvim/init.vim
             rm ~/.config/nvim/coc-settings.json
-            mkdir -p ~/.config/nvim
+            mkdir -p ~/.config/nvim/
             ln ./nvim/init.vim ~/.config/nvim/init.vim
             ln ./nvim/coc-settings.json ~/.config/nvim/coc-settings.json
             echo "==================" 

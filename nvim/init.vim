@@ -14,7 +14,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'davidgranstrom/nvim-markdown-preview'
 
 call plug#end()
-     
+
 inoremap jk <ESC>
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>

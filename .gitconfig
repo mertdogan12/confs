@@ -1,0 +1,5 @@
+[user]
+	email = mert.dogan@me.com
+	name = Mert Dogan
+[core]
+	editor = nvim

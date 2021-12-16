@@ -2,34 +2,6 @@
 # installing zsh
 sudo apt-get install zsh
 
-# Checks if it is installed
-if [$(command -v python3 2>&-) == ""]; then
-    echo "------------------------------------------"
-    echo "python3 is not install. Installing it now."
-    echo "------------------------------------------"
-
-    sudo apt install python3
-fi
-
-if [$(command -v python3-pip 2>&-) == ""]; then
-    echo "----------------------------------------------"
-    echo "python3-pip is not install. Installing it now."
-    echo "----------------------------------------------"
-
-    sudo apt install python3-pip
-fi
-
-if [$(command -v node 2>&-) == ""]; then
-    echo "----------------------------------------------"
-    echo "python3-pip is not install. Installing it now."
-    echo "----------------------------------------------"
-
-    wget https://nodejs.org/dist/v16.13.0/node-v16.13.0-linux-x64.tar.xz -o $HOME/node.tar.xz
-    tar xfv $HOME/node.tar.xz
-
-    export PATH=$PATH:$HOME/node/bin
-fi
-
 # Sets default shell
 while read -p "Do you want to make zsh you default shell? [y/N]: " yn; do
     case $yn in
@@ -86,6 +58,7 @@ while read -p "Do you want to install Neovim and vim plug [y/N]: " yn; do
             git clone https://github.com/neovim/neovim
             cd neovim && make -j4
             sudo make install
+	    cd ..; rm -rfd neovim
     
     	    echo "-----------------------------------"
             echo "Installing Vimplug and some plugins"
@@ -93,6 +66,36 @@ while read -p "Do you want to install Neovim and vim plug [y/N]: " yn; do
             sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
                 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
+	    # Checks if python and nodejs it is installed. If not it installs it
+            if [$(command -v python3 2>&-) == ""]; then
+                echo "------------------------------------------"
+                echo "python3 is not install. Installing it now."
+                echo "------------------------------------------"
+
+                sudo apt install python3
+            fi
+            
+            if [$(command -v python3-pip 2>&-) == ""]; then
+                echo "----------------------------------------------"
+                echo "python3-pip is not install. Installing it now."
+                echo "----------------------------------------------"
+            
+                sudo apt install python3-pip
+            fi
+            
+            if [$(command -v node 2>&-) == ""]; then
+                echo "----------------------------------------------"
+                echo "nodejs is not install. Installing it now."
+                echo "----------------------------------------------"
+
+                wget https://nodejs.org/dist/v16.13.0/node-v16.13.0-linux-x64.tar.xz -o ~/node.tar.xz
+                tar xfv ~/node.tar.xz
+		rm ~/node.tar.xz
+            
+                export PATH=$PATH:$HOME/node/bin
+		echo 'export PATH=$PATH:$HOME/node/bin' >> ~/.zshenv
+            fi
+            
             # Installing pip package
             pip install neovim
 	    npm i neovim

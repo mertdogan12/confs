@@ -1,9 +1,9 @@
 "luna Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'          
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'     
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -14,6 +14,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'davidgranstrom/nvim-markdown-preview'
 
 call plug#end()
+
+vnoremap <Tab> >gv
 
 inoremap jk <ESC>
 nnoremap <leader>n :NERDTreeFocus<CR>

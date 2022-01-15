@@ -29,6 +29,13 @@
           "snippetSupport": true
         }
       }
+    },
+    "solidity": {
+      "command": "~/solc-linux64",
+      "args": ["--lsp"],
+      "trace.server": "verbose",
+      "rootPatterns": [".git/"],
+      "filetypes": ["solidity"]
     }
   }
 }

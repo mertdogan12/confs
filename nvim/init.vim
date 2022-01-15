@@ -16,6 +16,10 @@ Plug 'davidgranstrom/nvim-markdown-preview'
 call plug#end()
 
 vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
+
+vnoremap // "hy/<C-r>h<CR>
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 inoremap jk <ESC>
 nnoremap <leader>n :NERDTreeFocus<CR>

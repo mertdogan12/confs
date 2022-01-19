@@ -88,17 +88,19 @@ while read -p "Do you want to install Neovim and vim plug [y/N]: " yn; do
                 echo "nodejs is not install. Installing it now."
                 echo "----------------------------------------------"
 
-                wget https://nodejs.org/dist/v16.13.0/node-v16.13.0-linux-x64.tar.xz -o ~/node.tar.xz
-                tar xfv ~/node.tar.xz
+                wget https://nodejs.org/dist/v16.13.0/node-v16.13.0-linux-x64.tar.xz -O ~/node.tar.xz
+		mkdir ~/node
+                tar xfv ~/node.tar.xz -C ~
+		mv ~/node-v16.13.0-linux-x64/* ~/node
+		rm -r ~/node-v16.13.0-linux-x64
 		rm ~/node.tar.xz
             
-                export PATH=$PATH:$HOME/node/bin
 		echo 'export PATH=$PATH:$HOME/node/bin' >> ~/.zshenv
             fi
             
             # Installing pip package
             pip install neovim
-	    npm i neovim
+	    PATH=$PATH:$HOME/node/bin npm i neovim
 
             # Links tht confs
             rm ~/.config/nvim/init.vim

@@ -15,35 +15,32 @@ done
 while read -p "Do you want to install ohmyzsh and some plugins [y/N]: " yn; do
     case $yn in
         y ) 
-            # ohmyzsh installation
+    	    echo "------------------"
             echo "Installing ohmyzsh"
-            echo "=================="
+    	    echo "------------------"
             sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-            echo "=================="
 
-            # Installing plugins
+    	    echo "------------------"
             echo "Installing plugins"
-            echo "=================="
+    	    echo "------------------"
             git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
             git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
             git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
-            # Install fzf
+    	    echo "--------------"
+            echo "Installing fzf"
+    	    echo "--------------"
             git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf; ~/.fzf/install
-
-            echo "=================="
     
-            # Links the confs
-            echo "Links the confs"
-            echo "=================="
+    	    echo "-----------------"
+            echo "Linking the confs"
+    	    echo "-----------------"
             rm ~/.zshrc
             rm ~/.p10k.zsh
-            ln ./zsh/.zshrc ~/.zshrc
-            ln ./zsh/.p10k.zsh ~/.p10k.zsh
+            ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
+            ln -s ~/.dotfiles/zsh/.p10k.zsh ~/.p10k.zsh
 
-            # Source .zshrc
             source ~/.zshrc
-            echo "==================" 
             break ;;
         N ) break; echo $yn;;
         * ) echo "N to exit"; echo $yn;;
@@ -54,31 +51,66 @@ done
 while read -p "Do you want to install Neovim and vim plug [y/N]: " yn; do
     case $yn in
         y ) 
+    	    echo "-----------------"
             echo "Installing Neovim"
-            # Installing neovim
-            echo "=================="
-	        sudo pacman -S base-devel cmake unzip ninja tree-sitter curl
+    	    echo "-----------------"
+	    sudo pacman -S base-devel cmake unzip ninja tree-sitter curl
             git clone https://github.com/neovim/neovim
             cd neovim && make -j4
             sudo make install
-            echo "=================="
+	    cd ..; rm -rfd neovim
     
-            echo "Vimplug installing and nvim confs linking"
-            # vim plug
-            echo "=================="
+    	    echo "-----------------------------------"
+            echo "Installing Vimplug and some plugins"
+    	    echo "-----------------------------------"
             sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
                 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
+	    # Checks if python and nodejs it is installed. If not it installs it
+            if [$(command -v python3 2>&-) == ""]; then
+                echo "------------------------------------------"
+                echo "python3 is not install. Installing it now."
+                echo "------------------------------------------"
+
+                sudo pacman -S python3
+            fi
+            
+            if [$(command -v python3-pip 2>&-) == ""]; then
+                echo "----------------------------------------------"
+                echo "python3-pip is not install. Installing it now."
+                echo "----------------------------------------------"
+            
+                sudo pacman -S python-pip
+            fi
+            
+            if [$(command -v node 2>&-) == ""]; then
+                echo "----------------------------------------------"
+                echo "nodejs is not install. Installing it now."
+                echo "----------------------------------------------"
+
+                wget https://nodejs.org/dist/v16.13.0/node-v16.13.0-linux-x64.tar.xz -O ~/node.tar.xz
+		mkdir ~/node
+                tar xfv ~/node.tar.xz -C ~
+		mv ~/node-v16.13.0-linux-x64/* ~/node
+		rm -r ~/node-v16.13.0-linux-x64
+		rm ~/node.tar.xz
+            
+		echo 'export PATH=$PATH:$HOME/node/bin' >> ~/.zshenv
+            fi
+            
             # Installing pip package
-            pip install neovim
+            pip3 install neovim
+	    PATH=$PATH:$HOME/node/bin npm i neovim
 
             # Links tht confs
             rm ~/.config/nvim/init.vim
             rm ~/.config/nvim/coc-settings.json
-            mkdir -p ~/.config/nvim
-            ln ./nvim/init.vim ~/.config/nvim/init.vim
-            ln ./nvim/coc-settings.json ~/.config/nvim/coc-settings.json
-            echo "==================" 
+
+            mkdir ~/.config
+            mkdir ~/.config/nvim
+	    
+            ln -s ~/.dotfiles/nvim/init.vim ~/.config/nvim/init.vim
+            ln -s ~/.dotfiles/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
             break ;;
         N ) break;;
         * ) echo "N to exit";;

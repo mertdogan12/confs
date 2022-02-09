@@ -1,9 +1,9 @@
 "luna Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scrooloose/nerdtree'          
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'scrooloose/nerdcommenter'     
+" Plug 'scrooloose/nerdtree'         
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Plug 'scrooloose/nerdcommenter'    
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -13,10 +13,14 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'davidgranstrom/nvim-markdown-preview'
 Plug 'numToStr/Comment.nvim'
+Plug 'elihunter173/dirbuf.nvim'
 
 call plug#end()
 
 lua require('Comment').setup()
+
+let g:loaded_netrwPlugin = 1
+let g:loaded_netrw = 1
 
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
@@ -24,11 +28,11 @@ vnoremap <S-Tab> <gv
 vnoremap // "hy/<C-r>h<CR>
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
-inoremap jk <ESC>
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+" inoremap jk <ESC>
+" nnoremap <leader>n :NERDTreeFocus<CR>
+" nnoremap <C-n> :NERDTree<CR>
+" nnoremap <C-t> :NERDTreeToggle<CR>
+" nnoremap <C-f> :NERDTreeFind<CR>
      
 nnoremap <C-p> <cmd>lua require('telescope.builtin').git_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>

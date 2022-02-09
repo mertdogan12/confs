@@ -12,8 +12,11 @@ Plug 'folke/tokyonight.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'davidgranstrom/nvim-markdown-preview'
+Plug 'numToStr/Comment.nvim'
 
 call plug#end()
+
+lua require('Comment').setup()
 
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv

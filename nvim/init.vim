@@ -53,7 +53,8 @@ let g:coc_global_extensions = [
   \ 'coc-html',
   \ 'coc-go',
   \ "coc-css",
-  \ "coc-discord-neovim"
+  \ "coc-discord-neovim",
+  \ "coc-python"
   \ ]
 
 autocmd FileType scss setl iskeyword+=@-@

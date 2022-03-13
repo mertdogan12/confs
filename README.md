@@ -6,3 +6,6 @@
 # Script is not perfect
 ./install.sh
 ```
+
+## Screenshot
+!(screenshot.png)[https://github.mert.nrw/dotfiles/screenshot.png]

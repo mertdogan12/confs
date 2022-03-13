@@ -1,3 +1,6 @@
 pack*
 neovim/
 node*
+
+tmux/tmux.sh
+zsh/.p10k.zsh

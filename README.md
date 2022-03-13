@@ -8,4 +8,4 @@
 ```
 
 ## Screenshot
-!(screenshot.png)[https://github.mert.nrw/dotfiles/screenshot.png]
+![screenshot](screenshot.png)

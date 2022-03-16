@@ -2,7 +2,7 @@
 
 ## Installation
 ```
-# Script need fzf
+# Script needs fzf
 # Script is not perfect
 ./install.sh
 ```

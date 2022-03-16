@@ -2,5 +2,5 @@ pack*
 neovim/
 node*
 
-tmux/tmux.sh
-zsh/.p10k.zsh
+tmux.sh
+.p10k.zsh

@@ -1,5 +1,4 @@
 #!/bin/bash
-# installing zsh
 
 # Sets default shell
 while read -p "Do you want to make zsh you default shell? (Also installs zsh) [y/N]: " yn; do

@@ -1,5 +1,5 @@
 #!/bin/bash
-for i in $(find $(git ls-files)              \
+for i in $(find $(git ls-files)             \
     -type f                                 \
     -not -path ".gitignore"                 \
     -a -not -name \*.sh                     \

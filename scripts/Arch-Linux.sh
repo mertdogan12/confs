@@ -96,3 +96,13 @@ while read -p "Do you want to install Neovim and vim plug [y/N]: " yn; do
         * ) echo "N to exit";;
     esac
 done
+
+# Neovim
+while read -p "Do you want to install i3-gaps, polybar, picom, feh [y/N]: " yn; do
+    case $yn in
+        y ) 
+            break ;;
+        N ) break;;
+        * ) echo "N to exit";;
+    esac
+done

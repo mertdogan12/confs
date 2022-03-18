@@ -104,8 +104,12 @@ set splitright
 
 set laststatus=0
 
+nnoremap <leader>tm :vsp<CR>:terminal<CR>i
 tnoremap <C-q> <C-\><C-n>
-nnoremap <leader>tm :vsp:terminal<CR>
+tnoremap <C-J> <C-\><C-n><C-W><C-J>
+tnoremap <C-K> <C-\><C-n><C-W><C-K>
+tnoremap <C-L> <C-\><C-n><C-W><C-L>
+tnoremap <C-H> <C-\><C-n><C-W><C-H>
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>

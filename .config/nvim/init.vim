@@ -102,7 +102,7 @@ set scrolloff=8
 set splitbelow
 set splitright
 
-set laststatus=0
+set laststatus=3
 
 nnoremap <leader>tm :vsp<CR>:terminal<CR>i
 tnoremap <C-q> <C-\><C-n>

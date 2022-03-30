@@ -40,6 +40,8 @@ nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
+nnoremap <leader>.. <Plug>(dirbuf_up)
+
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 let g:airline_theme='luna'

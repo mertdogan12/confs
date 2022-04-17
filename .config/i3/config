@@ -7,7 +7,7 @@ hide_edge_borders none
 default_border none
 
 bindsym $mod+u border none
-bindsym $mod+y border pixel 1
+# bindsym $mod+y border pixel 1
 bindsym $mod+n border normal
 
 floating_modifier $mod
@@ -19,6 +19,8 @@ bindsym $mod+Shift+q kill
 
 # start program launcher
 bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+c exec --no-startup-id rofi -show window
+bindsym $mod+y exec --no-startup-id rofi -show ssh
 
 # change focus
 bindsym $mod+h focus left

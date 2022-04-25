@@ -1,9 +1,12 @@
 [user]
 	email = mert.dogan@me.com
 	name = Mert Dogan
+	signingkey = mert.dogan@me.com
 [core]
 	editor = nvim
 [pull]
 	rebase = true
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
+[commit]
+	gpgsign = true

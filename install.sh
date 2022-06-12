@@ -2,11 +2,12 @@
 set -e
 
 DOTFILES_DIR=$HOME/.dotfiles
+CONFIG_DIR=$HOME/.config/ansible
 SSH_DIR=$HOME/.ssh
 
 # Installs ansible
 if [[ `which pacman` ]]; then
-    INSTALL=pacman -S
+    INSTALL=pacman\ -S
 elif [[ `which apt` ]]; then
     INSTALL=apt\ install
 else 
@@ -41,4 +42,4 @@ if [[ -f "requirements.yml" ]]; then
     ansible-galaxy install -r requirements.yml
 fi
 
-ansible-playbook --diff main.yml
+ansible-playbook --diff --ask-become-pass  main.yml

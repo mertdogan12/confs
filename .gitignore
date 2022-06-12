@@ -1,5 +1,5 @@
 pack*
-neovim/
+./neovim/
 node*
 
 tmux.sh

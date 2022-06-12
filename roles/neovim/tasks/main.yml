@@ -1,0 +1,29 @@
+---
+- name: Dependencies
+  ansible.builtin.package:
+    name:
+      - base-devel
+      - cmake
+      - curl
+      - ninja
+      - tree-sitter
+      - unzip
+    state: latest
+  become: yes
+
+- name: Clone
+  ansible.builtin.git:
+    clone: yes
+    depth: 1
+    dest: "{{ ansible_user_dir }}/Development/repository/github.com/neovim/neovim"
+    force: yes
+    repo: https://github.com/neovim/neovim.git
+    update: yes
+    version: "master"
+  register: clone
+
+- name: Make
+  make:
+    chdir: "{{ ansible_user_dir }}/Development/repository/github.com/neovim/neovim"
+    target: install
+  when: clone.changed

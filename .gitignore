@@ -1,6 +1,7 @@
 pack*
 ./neovim/
 node*
+.data
 
 tmux.sh
 .p10k.zsh

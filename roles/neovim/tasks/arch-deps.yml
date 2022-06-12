@@ -1,0 +1,12 @@
+---
+- name: Dependencies
+  ansible.builtin.package:
+    name:
+      - base-devel
+      - cmake 
+      - unzip 
+      - ninja 
+      - tree-sitter 
+      - curl
+    state: latest
+  become: yes

@@ -1,0 +1,15 @@
+---
+- name: Clone fzf
+  git:
+    clone: yes
+    depth: 1
+    dest: "~/.fzf"
+    repo: https://github.com/junegunn/fzf.git
+    update: yes
+    version: "master"
+  register: clone
+
+- name: Installation script
+  shell: 
+    cmd: "~/.fzf/install --all"
+  when: clone.changed

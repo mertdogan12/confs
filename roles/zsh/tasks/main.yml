@@ -1,0 +1,55 @@
+---
+- name: Install zsh
+  package:
+    name: zsh
+    state: latest
+  become: yes
+
+- name: Check if ohmyzsh is already installed
+  stat:
+    path: ~/.oh-my-zsh
+  register: ohmyzsh_dir
+
+- name: Fetch ohmyzsh installation script
+  uri:
+    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    return_content: yes
+  register: ohmyzsh_installer
+  when: not ohmyzsh_dir.stat.exists
+
+- name: Run ohmyzsh installation
+  shell:
+    cmd: sh -s -- -y
+    stdin: "{{ ohmyzsh_installer.content }}"
+  when: not ohmyzsh_dir.stat.exists
+
+- name: Install zsh-autosuggestions
+  git:
+    clone: yes
+    dest: "~/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+    repo: https://github.com/zsh-users/zsh-autosuggestions
+    update: yes
+    version: "master"
+
+- name: Install zsh-syntax-highlighting
+  git:
+    clone: yes
+    dest: "~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    update: yes
+    version: "master"
+
+- name: Install powerlevel10k
+  git:
+    clone: yes
+    depth: 1
+    dest: "~/.oh-my-zsh/custom/themes/powerlevel10k"
+    repo: https://github.com/romkatv/powerlevel10k.git
+    update: yes
+    version: "master"
+
+- name: Copy .zshrc
+  copy:
+    mode: '744'
+    src: ../files/.zshrc
+    dest: ~/.zshrc

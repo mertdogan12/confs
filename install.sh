@@ -19,6 +19,11 @@ if ! [ -x "$(command -v ansible)" ]; then
 fi
 
 # Setup ssh
+if ! [ -x "$(command -v ssh)" ]; then
+    sudo $INSTALL openssh
+    sudo systemctl start sshd
+fi
+
 if ! [[ -f "$SSH_DIR/id_rsa" ]]; then
     mkdir -p "$SSH_DIR"
 
@@ -32,6 +37,10 @@ if ! [[ -f "$SSH_DIR/id_rsa" ]]; then
 fi
 
 # Clone repo
+if ! [ -x "$(command -v git)" ]; then
+    sudo $INSTALL git
+fi
+
 if ! [[ -d "$DOTFILES_DIR" ]]; then
     git clone "https://github.com/mertdogan12/dotfiles.git" "$DOTFILES_DIR"
 fi

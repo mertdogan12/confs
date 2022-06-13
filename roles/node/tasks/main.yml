@@ -43,3 +43,9 @@
     state: absent
     path: "~/node.tar.xz"
   when: result.stdout.find('not found') == "-1"
+  
+- name: npm install neovim
+  npm:
+    name: neovim
+    global: yes
+  when: result.stdout.find('not found') != "-1"

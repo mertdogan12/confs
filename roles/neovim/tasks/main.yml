@@ -8,7 +8,7 @@
   when: ansible_distribution == 'Archlinux'
 
 - name: Clone
-  ansible.builtin.git:
+  git:
     clone: yes
     depth: 1
     dest: ".data/neovim"

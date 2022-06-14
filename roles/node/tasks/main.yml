@@ -44,8 +44,19 @@
     path: "~/node.tar.xz"
   when: result.stdout.find('not found') == "-1"
   
+- name: Add node bin path to bashrc and zshrc
+  lineinfile:
+    line: "export PATH=$PATH:$HOME/node/bin"
+    path: "{{ item }}"
+  loop:
+    - "~/.zshenv"
+    - "~/.bashrc"
+  when: result.stdout.find('not found') == "-1"
+
 - name: npm install neovim
   npm:
     name: neovim
     global: yes
   when: result.stdout.find('not found') != "-1"
+  environment:
+    PATH: "{{ ansible_env.PATH }}:{{ ansible_env.HOME }}/node/bin"

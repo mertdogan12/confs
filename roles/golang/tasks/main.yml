@@ -1,0 +1,29 @@
+---
+- name: Download go archive
+  get_url:
+    url: "https://go.dev/dl/go1.18.3.linux-amd64.tar.gz"
+    dest: "~/.dotfiles/.data/go.tar.xz"
+
+- name: Remove any previous Go installation
+  file:
+    state: absent
+    path: "/usr/local/go"
+    force: yes
+  become: yes
+
+- name: Extract the archive
+  unarchive:
+    dest: "/usr/local/"
+    src: "~/.dotfiles/.data/go.tar.xz"
+  become: yes
+
+- name: Add go to the PATH environment variable
+  lineinfile:
+    line: "export PATH=$PATH:/usr/local/go/bin"
+    mode: '744'
+    path: "{{ item }}"
+    create: yes
+  loop:
+    - "/etc/zsh/zshenv"
+    - "/etc/profile.d/go.sh"
+  become: yes

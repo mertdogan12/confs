@@ -48,6 +48,7 @@
   lineinfile:
     line: "export PATH=$PATH:$HOME/node/bin"
     path: "{{ item }}"
+    create: yes
   loop:
     - "~/.zshenv"
     - "~/.bashrc"

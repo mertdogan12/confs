@@ -1,1 +1,1 @@
-tmux new -s -A main
+tmux new -A -s main

@@ -12,6 +12,7 @@
     dest: ~/
   with_fileglob:
     - ../files/*
+    - ../files/.*
 
 - name: tmux.sh for ubuntu
   copy:

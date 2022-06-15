@@ -27,6 +27,11 @@ if ! [ -x "$(command -v ssh)" ]; then
     sudo systemctl start sshd
 fi
 
+# Install tee
+if ! [ -x "$(command -v tee)" ]; then
+    sudo $INSTALL tee
+fi
+
 if ! [[ -f "$SSH_DIR/id_rsa" ]]; then
     mkdir -p "$SSH_DIR"
 
@@ -34,7 +39,7 @@ if ! [[ -f "$SSH_DIR/id_rsa" ]]; then
 
     ssh-keygen -b 4096 -t rsa -f "$SSH_DIR/id_rsa" -N "" -C "$USER@$HOSTNAME"
 
-    cat "$SSH_DIR/id_rsa.pub" >> "$SSH_DIR/authorized_keys"
+    cat "$SSH_DIR/id_rsa.pub" | tee -a "$SSH_DIR/authorized_keys"
 
     chmod 600 "$SSH_DIR/authorized_keys"
 fi
@@ -49,6 +54,7 @@ if ! [[ -d "$DOTFILES_DIR" ]]; then
 fi
 
 cd "$DOTFILES_DIR"
+mkdir .data
 
 if [[ -f "requirements.yml" ]]; then
     ansible-galaxy install -r requirements.yml

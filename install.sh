@@ -19,6 +19,7 @@ fi
 
 if ! [ -x "$(command -v ansible)" ]; then
     sudo $INSTALL ansible
+    pip install ansible
 fi
 
 # Setup ssh
@@ -60,4 +61,8 @@ if [[ -f "requirements.yml" ]]; then
     ansible-galaxy install -r requirements.yml
 fi
 
-ansible-playbook --diff --ask-become-pass  main.yml
+if [ $1 == "-s" ]; then
+    ansible-playbook --diff --ask-become-pass  main.yml
+else
+    ansible-playbook --diff main.yml
+fi

@@ -1,0 +1,39 @@
+---
+- name: Ubuntu dependencies
+  include: ubuntu-deps.yml 
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Arch linuc dependencies
+  include: arch-deps.yml 
+  when: ansible_distribution == 'Archlinux'
+
+- name: Clone
+  git:
+    clone: yes
+    depth: 1
+    dest: ".data/neovim"
+    force: yes
+    repo: https://github.com/neovim/neovim.git
+    update: yes
+    version: "master"
+  register: clone
+
+- name: Make
+  make:
+    chdir: ".data/neovim"
+    target: install
+  become: yes
+  when: clone.changed
+
+- name: Installs vim-plug
+  raw: >
+    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+                https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+- name: Copy conf. files
+  copy:
+    mode: '644'
+    src: "{{ item }}"
+    dest: ~/.config/nvim/
+  with_fileglob:
+    - ../files/*

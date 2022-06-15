@@ -1,0 +1,31 @@
+---
+- name: Get gh archive gpg key - Ubuntu
+  get_url:
+    url: "https://cli.github.com/packages/githubcli-archive-keyring.gpg"
+    dest: "/usr/share/keyrings/githubcli-archive-keyring.gpg"
+  become: yes
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Add gh archive - Ubuntu
+  lineinfile:
+    line: >
+      deb [arch={{ ansible_architecture }} signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] 
+      https://cli.github.com/packages stable main
+    path: "/etc/apt/sources.list.d/github-cli.list"
+    create: yes
+  become: yes
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Install gh - Ubuntu
+  apt:
+    update_cache: yes
+    name: gh
+  become: yes
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Install gh - Archlinux
+  package:
+    name: github-cli
+    state: latest
+  become: yes
+  when: ansible_distribution == 'Archlinux'

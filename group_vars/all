@@ -1,0 +1,11 @@
+default_roles:
+  - zsh 
+  - fzf 
+  - node 
+  - python 
+  - golang 
+  - lazygit 
+  - gh 
+  - neovim 
+  - tmux 
+  - fonts

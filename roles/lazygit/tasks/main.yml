@@ -1,0 +1,5 @@
+---
+- name: Install lazygit
+  shell: go install github.com/jesseduffield/lazygit@latest
+  environment:
+    PATH: "{{ ansible_env.PATH }}:/usr/local/go/bin"

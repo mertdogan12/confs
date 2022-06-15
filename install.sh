@@ -55,13 +55,13 @@ if ! [[ -d "$DOTFILES_DIR" ]]; then
 fi
 
 cd "$DOTFILES_DIR"
-mkdir .data
+mkdir -p .data
 
 if [[ -f "requirements.yml" ]]; then
     ansible-galaxy install -r requirements.yml
 fi
 
-if [ $1 == "-s" ]; then
+if [ $1 ]; then
     ansible-playbook --diff --ask-become-pass  main.yml
 else
     ansible-playbook --diff main.yml

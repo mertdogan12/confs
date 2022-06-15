@@ -7,9 +7,12 @@ SSH_DIR=$HOME/.ssh
 
 # Installs ansible
 if [[ `which pacman` ]]; then
+    pacman -Syyu
     INSTALL=pacman\ -S
 elif [[ `which apt` ]]; then
-    INSTALL=apt\ install
+    sudo apt update
+    sudo apt -y upgrade
+    INSTALL=apt\ -y\ install
 else 
     exit
 fi

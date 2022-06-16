@@ -1,0 +1,17 @@
+---
+- name: Install polybar
+  package:
+    name: polybar
+    state: latest
+    use: pacman
+  become: yes
+  when: ansible_distribution == 'Archlinux'
+
+- name: Copy config files
+  copy:
+    dest: "~/.config/polybar/"
+    mode: '644'
+    src: "{{ item }}"
+  when: ansible_distribution == 'Archlinux'
+  with_fileglob:
+    - ../files/*

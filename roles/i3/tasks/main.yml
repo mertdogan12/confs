@@ -1,0 +1,30 @@
+---
+- name: Install xinit
+  package:
+    name: xorg-xinit
+    state: latest
+    use: pacman
+  become: yes
+  when: ansible_distribution == 'Archlinux'
+
+- name: Copy .xinitrc
+  copy:
+    dest: "~/"
+    mode: '744'
+    src: "../files/.xinitrc"
+  when: ansible_distribution == 'Archlinux'
+
+- name: Install i3-gaps
+  package:
+    name: i3-gaps
+    state: latest
+    use: pacman
+  become: yes
+  when: ansible_distribution == 'Archlinux'
+
+- name: Copy config file
+  copy:
+    dest: "~/.config/i3/"
+    mode: '644'
+    src: "../files/config"
+  when: ansible_distribution == 'Archlinux'

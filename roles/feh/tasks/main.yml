@@ -1,0 +1,7 @@
+- name: Install feh
+  package:
+    name: feh
+    state: latest
+    use: pacman
+  become: yes
+  when: ansible_distribution == 'Archlinux'

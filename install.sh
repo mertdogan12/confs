@@ -5,7 +5,7 @@ DOTFILES_DIR=$HOME/.dotfiles
 CONFIG_DIR=$HOME/.config/ansible
 SSH_DIR=$HOME/.ssh
 
-# Installs ansible
+# Check os
 if [[ `which pacman` ]]; then
     pacman -Syyu
     INSTALL=pacman\ -S
@@ -17,20 +17,21 @@ else
     exit
 fi
 
+# Installs ansible
 if ! [ -x "$(command -v ansible)" ]; then
     sudo $INSTALL ansible
     pip install ansible
+fi
+
+# Install tee
+if ! [ -x "$(command -v tee)" ]; then
+    sudo $INSTALL tee
 fi
 
 # Setup ssh
 if ! [ -x "$(command -v ssh)" ]; then
     sudo $INSTALL openssh
     sudo systemctl start sshd
-fi
-
-# Install tee
-if ! [ -x "$(command -v tee)" ]; then
-    sudo $INSTALL tee
 fi
 
 if ! [[ -f "$SSH_DIR/id_rsa" ]]; then

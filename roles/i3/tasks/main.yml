@@ -22,7 +22,7 @@
   become: yes
   when: ansible_distribution == 'Archlinux'
 
-- name: Copy .xinitrc
+- name: Copy config file
   copy:
     dest: "~/.config/i3/"
     mode: '644'

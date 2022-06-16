@@ -62,7 +62,7 @@ if [[ -f "requirements.yml" ]]; then
     ansible-galaxy install -r requirements.yml
 fi
 
-if [ $1 ]; then
+if [ $1 -eq "-s" ]; then
     ansible-playbook --diff --ask-become-pass  main.yml
 else
     ansible-playbook --diff main.yml

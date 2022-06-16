@@ -6,5 +6,5 @@ My [dotfiles](group_vars/all)
 curl https://github.mert.nrw/dotfiles/install.sh | bash -s -- -s
 ```
 
-# Screenshot
+## Screenshot
 ![screenshot](screenshot.png)

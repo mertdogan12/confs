@@ -1,0 +1,15 @@
+---
+- name: Install picom
+  package:
+    name: picom
+    state: latest
+    use: pacman
+  become: yes
+  when: ansible_distribution == 'Archlinux'
+
+- name: Copy conf. file
+  copy:
+    dest: "~/.config/"
+    mode: '644'
+    src: "../files/picom.conf"
+  when: ansible_distribution == 'Archlinux'

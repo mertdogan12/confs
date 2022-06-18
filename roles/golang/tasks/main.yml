@@ -27,3 +27,12 @@
     - "/etc/zsh/zshenv"
     - "/etc/profile.d/go.sh"
   become: yes
+
+- name: Add go home to the PATH environment variable
+  lineinfile:
+    line: "export PATH=$PATH::$HOME/go/bin"
+    path: "{{ item }}"
+    create: yes
+  loop:
+    - "~/.zshenv"
+    - "~/.bashrc"

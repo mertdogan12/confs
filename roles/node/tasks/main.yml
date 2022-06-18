@@ -1,48 +1,36 @@
 ---
 - name: Check if node is installed
   shell: which node
+  ignore_errors: yes
   register: result
 
 - name: Download node
   get_url:
     url: "https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz"
     dest: "~/node.tar.xz"
-  when: result.stdout.find('not found') == "-1"
-
-- name: Create node dir
-  file:
-    mode: '644'
-    path: "~/node"
-    state: directory
-  when: result.stdout.find('not found') == "-1"
+  when: result.stdout == ""
 
 - name: Unpack node.tar.xz
   unarchive:
     dest: "~/"
-    mode: '644'
     src: "~/node.tar.xz"
-  when: result.stdout.find('not found') == "-1"
+  when: result.stdout == ""
 
-- name: Copy node in the right dir
-  copy:
-    mode: '644'
-    src: "{{ item }}"
-    dest: ~/node
-  with_fileglob:
-    - ~/node-v16.15.1-linux-x64/*
-  when: result.stdout.find('not found') == "-1"
+- name: Rename unpacked folder to node
+  shell: mv ~/node-v16.15.1-linux-x64  ~/node
+  when: result.stdout == ""
   
 - name: Remove ~/node-v16.15.1-linux-x64
   file:
     state: absent
     path: "~/node-v16.15.1-linux-x64/"
-  when: result.stdout.find('not found') == "-1"
+  when: result.stdout == ""
 
 - name: Remove ~/node.tar.xz
   file:
     state: absent
     path: "~/node.tar.xz"
-  when: result.stdout.find('not found') == "-1"
+  when: result.stdout == ""
   
 - name: Add node bin path to bashrc and zshrc
   lineinfile:
@@ -52,12 +40,11 @@
   loop:
     - "~/.zshenv"
     - "~/.bashrc"
-  when: result.stdout.find('not found') == "-1"
+  when: result.stdout == ""
 
 - name: npm install neovim
   npm:
     name: neovim
     global: yes
-  when: result.stdout.find('not found') != "-1"
   environment:
     PATH: "{{ ansible_env.PATH }}:{{ ansible_env.HOME }}/node/bin"

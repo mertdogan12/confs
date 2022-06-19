@@ -12,7 +12,7 @@ bindsym $mod+n border normal
 
 floating_modifier $mod
 
-bindsym $mod+Return exec st -z 16
+bindsym $mod+Return exec st
 
 # Window kill command
 bindsym $mod+Shift+q kill

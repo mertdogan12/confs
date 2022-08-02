@@ -6,7 +6,7 @@
   become: yes
   loop:
     - python
-    - python-pip
+    - python3-pip
 
 - name: Install neovim
   pip:

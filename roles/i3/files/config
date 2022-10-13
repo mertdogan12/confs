@@ -1,7 +1,11 @@
 set $mod Mod4
 
-new_window pixel 1
-new_float normal
+# assign
+assign [class="discord"] 5
+assign [class="thunderbird"] 6
+
+default_border pixel 1
+default_floating_border pixel 1
 
 hide_edge_borders none
 default_border none
@@ -11,7 +15,7 @@ bindsym $mod+n border normal
 
 floating_modifier $mod
 
-bindsym $mod+Return exec st
+bindsym $mod+Return exec --no-startup-id st
 
 # Window kill command
 bindsym $mod+Shift+q kill
@@ -131,7 +135,7 @@ for_window [class="Calamares"] floating enable border none
 for_window [class="Clipgrab"] floating enable
 for_window [title="File Transfer*"] floating enable
 for_window [class="Galculator"] floating enable border none
-for_window [class="GParted"] floating enable border none
+for_window [class="gnome-calculator"] floating enable border none
 for_window [title="i3_help"] floating enable sticky enable border none
 for_window [class="Lightdm-gtk-greeter-settings"] floating enable
 for_window [class="Lxappearance"] floating enable sticky enable border none
@@ -153,6 +157,7 @@ for_window [class="Thus"] floating enable border none
 for_window [class="Timeset-gui"] floating enable border none
 for_window [class="(?i)virtualbox"] floating enable border none
 for_window [class="Xfburn"] floating enable
+for_window [class="Scrivano"] floating enable border none
 
 # KDE
 for_window [title="Desktop — Plasma"] kill, floating enable, border none

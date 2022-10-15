@@ -227,7 +227,7 @@ mode "resize" {
 }
 
 # Autostart applications
-exec --no-startup-id feh --bg-fill ~/.dotfiles/wallpaper/wave.png; sleep 1; compton -b
+exec --no-startup-id feh --bg-fill ~/.dotfiles/wallpaper/space.webp; sleep 1; compton -b
 exec --no-startup-id nm-applet
 # exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
@@ -247,6 +247,7 @@ client.background #1f1f1f
 # Gaps
 gaps inner 10
 gaps outer 1
+gaps top 47
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
 set $mode_gaps Gaps: (o) outer, (i) inner
@@ -298,3 +299,4 @@ bindsym XF86TouchpadOff exec --no-startup-id synclient Touchpadoff=1
 
 exec --no-startup-id setxkbmap -layout de
 exec --no-startup-id picom -b
+exec_always --no-startup-id ~/.config/polybar/launch.sh

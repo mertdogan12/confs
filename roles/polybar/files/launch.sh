@@ -1,0 +1,2 @@
+polybar main &
+polybar second &

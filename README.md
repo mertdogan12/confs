@@ -2,7 +2,7 @@
 
 ## Installation
 ```
-curl https://github.dogan.at/dotfiles/install.sh | bash -s -- -s
+curl https://dotfiles.dogan.at/install.sh | bash -s -- -s
 ```
 
 ## Screenshot

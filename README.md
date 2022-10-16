@@ -13,7 +13,7 @@ curl https://github.mert.nrw/dotfiles/install.sh | bash -s -- -s
     - installation
     - ohmyzsh/plugins
 - [x]  fzf - installation
-- [ ]  python - different package name for ubuntu
+- [x]  python - different package name for ubuntu
 - [x]  go installation
 - [x]  lazygit installation - after go
 - [x]  gh installation - after go

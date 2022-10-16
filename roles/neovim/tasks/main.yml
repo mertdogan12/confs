@@ -10,7 +10,6 @@
 - name: Clone
   git:
     clone: yes
-    depth: 1
     dest: ".data/neovim"
     force: yes
     repo: https://github.com/neovim/neovim.git
@@ -21,15 +20,26 @@
 - name: Make
   make:
     chdir: ".data/neovim"
+  environment:
+    CMAKE_BUILD_TYPE: RelWithDebInfo
+  when: clone.changed
+
+- name: Make install
+  make:
+    chdir: ".data/neovim"
     target: install
   become: yes
   when: clone.changed
 
-- name: Installs vim-plug
-  raw: >
-    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-                https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
+- name: Installs packer
+  git:
+    clone: yes
+    dest: ~/.local/share/nvim/site/pack/packer/start/packer.nvim 
+    depth: 1
+    repo: https://github.com/wbthomason/packer.nvim
+    update: yes
+    version: "master"
+  
 - name: Copy conf. files
   copy:
     mode: '644'

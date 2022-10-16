@@ -1,11 +1,19 @@
 ---
+- name: Ubuntu python name
+  set_fact: pyName="python3"
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Archlinux python name
+  set_fact: pyName="python"
+  when: ansible_distribution == 'Archlinux'
+
 - name: Install pyhton and pip
   package: 
     name: "{{ item }}"
     state: latest
   become: yes
   loop:
-    - python
+    - "{{ pyName }}"
     - python-pip
 
 - name: Install neovim

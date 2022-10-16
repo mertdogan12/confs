@@ -13,23 +13,23 @@ curl https://github.mert.nrw/dotfiles/install.sh | bash -s -- -s
     - installation
     - ohmyzsh/plugins
 - [x]  fzf - installation
-- [x]  python - different package name for ubuntu
+- [x]  python/pip
+    - installation
+    - install neovim pip package
 - [x]  go installation
 - [x]  lazygit installation - after go
 - [x]  gh installation - after go
 - [x]  Neovim
-    - deps
-    - clone
-    - make
-    - vim-plug
-    - conf files
+    - clone/compile
+    - install packer.nvim
+    - conf. files
 - [x]  tmux - installation
 - [ ]  fonts
     - [ ]  install fontconifg
     - [ ]  install nerd hack font
 - [x]  Polybar
     - installation
-    - confg files
+    - conf. files
 - [x]  Picom
     - installation
     - confg files

@@ -84,11 +84,6 @@ _G.packer_plugins = {
     path = "/home/mert/.local/share/nvim/site/pack/packer/start/coc.nvim",
     url = "https://github.com/neoclide/coc.nvim"
   },
-  ["dirbuf.nvim"] = {
-    loaded = true,
-    path = "/home/mert/.local/share/nvim/site/pack/packer/start/dirbuf.nvim",
-    url = "https://github.com/elihunter173/dirbuf.nvim"
-  },
   ["markdown-preview.nvim"] = {
     loaded = false,
     needs_bufread = false,
@@ -116,6 +111,11 @@ _G.packer_plugins = {
     path = "/home/mert/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text",
     url = "https://github.com/theHamsta/nvim-dap-virtual-text"
   },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/mert/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/mert/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -135,6 +135,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/mert/.local/share/nvim/site/pack/packer/start/telescope-dap.nvim",
     url = "https://github.com/nvim-telescope/telescope-dap.nvim"
+  },
+  ["telescope.nvim"] = {
+    loaded = true,
+    path = "/home/mert/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["tokyonight.nvim"] = {
     loaded = true,

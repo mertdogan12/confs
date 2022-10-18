@@ -20,6 +20,7 @@
 - name: Make
   make:
     chdir: ".data/neovim"
+  become: yes
   environment:
     CMAKE_BUILD_TYPE: RelWithDebInfo
   when: clone.changed

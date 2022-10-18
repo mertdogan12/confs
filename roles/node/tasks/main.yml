@@ -46,5 +46,6 @@
   npm:
     name: neovim
     global: yes
+  become: yes
   environment:
     PATH: "{{ ansible_env.PATH }}:{{ ansible_env.HOME }}/node/bin"

@@ -1,4 +1,4 @@
-vim.opt.guifont = "Inconsolata-dz for Powerline dz"
+vim.opt.guifont = "CaskaydiaCove Nerd Font"
 vim.opt.showmode = false
 
 vim.opt.tabstop = 4
@@ -22,3 +22,5 @@ vim.opt.laststatus = 3
 vim.opt.mouse = "nv"
 
 vim.opt.cursorline = true
+
+vim.opt.termguicolors = true

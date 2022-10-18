@@ -12,14 +12,16 @@ return require('packer').startup(function(use)
     use 'nvim-lua/plenary.nvim'
     use 'vim-airline/vim-airline'
     use 'vim-airline/vim-airline-themes'
-    use 'elihunter173/dirbuf.nvim'
 
     -- COC
     use { 'neoclide/coc.nvim', branch = 'release'}
     use { 'prettier/vim-prettier', run = 'yarn install' }
 
     -- telescope
-    requires = { {'nvim-lua/plenary.nvim'} }
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
 
     -- commenting
     use 'numToStr/Comment.nvim'
@@ -36,4 +38,10 @@ return require('packer').startup(function(use)
     use 'rcarriga/nvim-dap-ui'
     use 'theHamsta/nvim-dap-virtual-text'
     use 'nvim-telescope/telescope-dap.nvim'
+
+    -- treesitter
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+    }
 end)

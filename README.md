@@ -37,3 +37,4 @@ curl https://dotfiles.dogan.at/install.sh | bash -s -- -s
 - [ ]  rofi - installation
 - [ ]  st - installation
 - [ ]  Firefox installation + as default browser
+- [ ]  Switch from i3 to hyprland

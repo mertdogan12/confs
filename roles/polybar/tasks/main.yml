@@ -10,7 +10,7 @@
 - name: Copy config files
   copy:
     dest: "~/.config/polybar/"
-    mode: '644'
+    mode: '744'
     src: "{{ item }}"
   when: ansible_distribution == 'Archlinux'
   with_fileglob:

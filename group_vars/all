@@ -9,7 +9,4 @@ default_roles:
   - neovim 
   - tmux 
   - fonts
-  - i3
-  - polybar
-  - picom
   - feh

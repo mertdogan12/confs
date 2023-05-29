@@ -28,7 +28,7 @@ return require('packer').startup(function(use)
     use 'numToStr/Comment.nvim'
     
     -- theme
-    use 'folke/tokyonight.nvim'
+    use { "catppuccin/nvim", as = "catppuccin" }
 
     -- markdown
     use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })

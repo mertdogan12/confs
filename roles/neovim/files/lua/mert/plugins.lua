@@ -16,6 +16,7 @@ return require('packer').startup(function(use)
     -- COC
     use { 'neoclide/coc.nvim', branch = 'release'}
     use { 'prettier/vim-prettier', run = 'yarn install' }
+    use { 'OmniSharp/omnisharp-vim' }
 
     -- telescope
     use {
@@ -44,4 +45,13 @@ return require('packer').startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     }
+
+    -- rust
+    use 'rust-lang/rust.vim'
+
+    -- arduinio
+    use {'stevearc/vim-arduino'}
+
+    -- hologram
+    use {'edluffy/hologram.nvim'}
 end)

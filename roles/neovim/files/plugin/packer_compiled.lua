@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/home/mert/.local/share/nvim/site/pack/packer/start/coc.nvim",
     url = "https://github.com/neoclide/coc.nvim"
   },
+  ["hologram.nvim"] = {
+    loaded = true,
+    path = "/home/mert/.local/share/nvim/site/pack/packer/start/hologram.nvim",
+    url = "https://github.com/edluffy/hologram.nvim"
+  },
   ["markdown-preview.nvim"] = {
     loaded = false,
     needs_bufread = false,
@@ -116,6 +121,11 @@ _G.packer_plugins = {
     path = "/home/mert/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["omnisharp-vim"] = {
+    loaded = true,
+    path = "/home/mert/.local/share/nvim/site/pack/packer/start/omnisharp-vim",
+    url = "https://github.com/OmniSharp/omnisharp-vim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/mert/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -130,6 +140,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/mert/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
+  },
+  ["rust.vim"] = {
+    loaded = true,
+    path = "/home/mert/.local/share/nvim/site/pack/packer/start/rust.vim",
+    url = "https://github.com/rust-lang/rust.vim"
   },
   ["telescope-dap.nvim"] = {
     loaded = true,
@@ -155,6 +170,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/mert/.local/share/nvim/site/pack/packer/start/vim-airline-themes",
     url = "https://github.com/vim-airline/vim-airline-themes"
+  },
+  ["vim-arduino"] = {
+    loaded = true,
+    path = "/home/mert/.local/share/nvim/site/pack/packer/start/vim-arduino",
+    url = "https://github.com/stevearc/vim-arduino"
   },
   ["vim-prettier"] = {
     loaded = true,

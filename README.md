@@ -30,7 +30,7 @@ curl https://dotfiles.dogan.at/install.sh | bash -s -- -s
 - [x]  Waybar
     - installation
     - conf. files
-- [x]  Wallpapers / feh - installation
+- [ ]  Wallpapers / hyprpaper - installation, config files
 - [x]  wofi - installation
 - [x]  kitty - installation
 - [ ]  Firefox installation + as default browser

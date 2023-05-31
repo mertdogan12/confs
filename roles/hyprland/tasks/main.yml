@@ -1,0 +1,14 @@
+---
+- name: Hyprland install
+  package: 
+    name: hyprland
+    state: latest
+  become: yes
+
+- name: copy conf. files
+  copy:
+    mode: '644'
+    src: "{{ item }}"
+    dest: ~/.config/hypr
+  with_fileglob:
+    - ../files/*

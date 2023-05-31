@@ -1,0 +1,14 @@
+---
+- name: Install kitty
+  package:
+    name: kitty
+    state: latest
+  become: yes
+
+- name: Copy conf. files
+  copy:
+    mode: '644'
+    src: "{{ item }}"
+    dest: ~/.config/kitty
+  with_fileglob:
+    - ../files/*

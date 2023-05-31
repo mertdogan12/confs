@@ -16,6 +16,7 @@ return require('packer').startup(function(use)
     -- COC
     use { 'neoclide/coc.nvim', branch = 'release'}
     use { 'prettier/vim-prettier', run = 'yarn install' }
+    use { 'OmniSharp/omnisharp-vim' }
 
     -- telescope
     use {
@@ -27,7 +28,7 @@ return require('packer').startup(function(use)
     use 'numToStr/Comment.nvim'
     
     -- theme
-    use 'folke/tokyonight.nvim'
+    use { "catppuccin/nvim", as = "catppuccin" }
 
     -- markdown
     use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
@@ -44,4 +45,13 @@ return require('packer').startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     }
+
+    -- rust
+    use 'rust-lang/rust.vim'
+
+    -- arduinio
+    use {'stevearc/vim-arduino'}
+
+    -- hologram
+    use {'edluffy/hologram.nvim'}
 end)

@@ -1,6 +1,3 @@
-require("tokyonight").setup({
-    transparent = true,
-    terminal_colors = true
+require("catppuccin").setup({
+    flavour, "mocha",
 })
-
-vim.cmd("colorscheme tokyonight")

@@ -1,0 +1,6 @@
+---
+- name: Install package (wofi)
+  package:
+    name: wofi
+    state: latest
+  become: yes

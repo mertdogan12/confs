@@ -12,3 +12,4 @@ default_roles:
   - feh
   - wofi
   - kitty
+  - waybar

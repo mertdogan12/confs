@@ -25,19 +25,13 @@ curl https://dotfiles.dogan.at/install.sh | bash -s -- -s
     - conf. files
 - [x]  tmux - installation
 - [ ]  fonts
-    - [ ]  install fontconifg
+    - [x]  install fontconifg
     - [ ]  install nerd hack font
-- [x]  Polybar
+- [x]  Waybar
     - installation
     - conf. files
-- [x]  Picom
-    - installation
-    - confg files
 - [x]  Wallpapers / feh - installation
-- [ ]  rofi - installation
-- [ ]  st - installation
 - [x]  wofi - installation
 - [x]  kitty - installation
 - [ ]  Firefox installation + as default browser
 - [ ]  Switch from i3 to hyprland
-- [ ]  Switch to kitty terminal

@@ -1,17 +1,6 @@
 ---
-- name: Create font dir
-  file:
-    state: directory
-    path: "/usr/local/share/fonts/ttf/"
+- name: Install fontconfig
+  package:
+    name: fontconfig
+    state: latest
   become: yes
-
-- name: Copy fonts
-  copy:
-    src: "{{ item }}"
-    dest: "/usr/local/share/fonts/ttf"
-  with_fileglob:
-    - ../files/*
-  become: yes
-
-- name: Cache fonts
-  shell: fc-cache -f -v

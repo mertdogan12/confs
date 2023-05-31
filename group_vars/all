@@ -10,3 +10,4 @@ default_roles:
   - tmux 
   - fonts
   - feh
+  - wofi

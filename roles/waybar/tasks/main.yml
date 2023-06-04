@@ -1,14 +1,11 @@
 ---
 - name: Install waybar
   package:
-    name: wofi
+    name: waybar
     state: latest
   become: yes
 
-- name: Copy conf. files
-  copy:
-    mode: '644'
-    src: "{{ item }}"
-    dest: ~/.config/waybar
-  with_fileglob:
-    - ../files/*
+- name: Sync. conf. files
+  synchronize:
+    src: ../files/
+    dest: ~/.config/waybar/

@@ -40,10 +40,7 @@
     update: yes
     version: "master"
   
-- name: Copy conf. files
-  copy:
-    mode: '644'
-    src: "{{ item }}"
+- name: Sync conf. files
+  synchronize:
+    src: ../files/
     dest: ~/.config/nvim/
-  with_fileglob:
-    - ../files/*

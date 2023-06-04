@@ -1,4 +1,5 @@
 default_roles:
+  - rsync
   - zsh 
   - fzf 
   - node 
@@ -13,3 +14,4 @@ default_roles:
   - wofi
   - kitty
   - waybar
+  - hyprland

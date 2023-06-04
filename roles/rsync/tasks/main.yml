@@ -1,0 +1,6 @@
+---
+- name: Install rsync
+  package:
+    name: rsync
+    state: latest
+  become: yes

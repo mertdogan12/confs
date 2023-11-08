@@ -1,0 +1,19 @@
+---
+- name: Confs
+  set_fact:
+    zsh: { src: ~/.zshrc, dest: roles/zsh/files/.zshrc }
+    neovim: { src: ~/.config/nvim/, dest: roles/neovim/files/ }
+    hyprland: { src: ~/.config/hypr/, dest: roles/hyprland/files/ }
+    kitty: { src: ~/.config/kitty/, dest: roles/kitty/files/ }
+    waybar: { src: ~/.config/waybar/, dest: roles/waybar/files/ }
+
+- name: Copy all conf files
+  synchronize:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - "{{ zsh }}"
+    - "{{ neovim }}"
+    - "{{ hyprland }}"
+    - "{{ kitty }}"
+    - "{{ waybar }}"

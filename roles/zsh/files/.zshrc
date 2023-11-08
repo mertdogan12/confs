@@ -110,6 +110,11 @@ export SCREENFILE=$HOME/mert/.screenlayout/layout.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias ls="ls --color=auto --hyperlink=auto"
+alias icat="kitty +icat"
+alias mpvc="mpv --vo=kitty"
+alias meineip="curl https://ipinfo.io/json"
+
 # source $HOME/fzf-tab-completion/zsh/fzf-zsh-completion.sh
 # bindkey '^I' fzf_completion
 
@@ -123,3 +128,10 @@ if [ "$TMUX" = "" ]; then ~/tmux.sh $PROJECTPATH; fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
+
+export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye >/dev/null
+

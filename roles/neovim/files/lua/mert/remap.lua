@@ -2,6 +2,9 @@ local nnoremap = require("mert.keymap").nnoremap
 local vnoremap = require("mert.keymap").vnoremap
 local tnoremap = require("mert.keymap").tnoremap
 
+-- Filetree
+nnoremap("<leader>pv", ":Ex<CR>")
+
 -- Move text with tap im v mode
 vnoremap("<Tab>", ">gv")
 vnoremap("<S-Tab>", "<gv")

@@ -16,8 +16,4 @@
     - "{{ pyName }}"
     - python-pip
     - python-setuptools
-
-- name: Install neovim
-  pip:
-    name: neovim
-    state: latest
+    - python-neovim

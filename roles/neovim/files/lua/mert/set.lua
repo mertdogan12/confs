@@ -31,5 +31,3 @@ vim.opt.mouse = "nv"
 vim.opt.cursorline = true
 
 vim.opt.termguicolors = true
-
-vim.cmd.colorscheme 'github_dark_colorblind'

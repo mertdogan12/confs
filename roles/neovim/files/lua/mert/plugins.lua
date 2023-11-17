@@ -14,24 +14,44 @@ return require('packer').startup(function(use)
     use 'vim-airline/vim-airline-themes'
 
     -- COC
-    use { 'neoclide/coc.nvim', branch = 'release'}
+    use { 'neoclide/coc.nvim', branch = 'release' }
     use { 'prettier/vim-prettier', run = 'yarn install' }
     use { 'OmniSharp/omnisharp-vim' }
 
     -- telescope
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
-        requires = { {'nvim-lua/plenary.nvim'} }
+        requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
     -- commenting
     use 'numToStr/Comment.nvim'
-    
+
     -- theme
-    use ({ 'projekt0n/github-nvim-theme' })
+    use({
+        'projekt0n/github-nvim-theme',
+        config = function()
+            require('github-theme').setup({
+                options = {
+                    transparent = true,
+                    terminal_colors = true,
+                },
+            })
+
+           vim.cmd.colorscheme 'github_dark'
+        end,
+    })
 
     -- markdown
-    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = "cd app && npm install",
+        setup = function()
+            vim.g.mkdp_filetypes = {
+                "markdown" }
+        end,
+        ft = { "markdown" },
+    })
 
     -- debugging
     use 'mfussenegger/nvim-dap'
@@ -50,8 +70,8 @@ return require('packer').startup(function(use)
     use 'rust-lang/rust.vim'
 
     -- arduinio
-    use {'stevearc/vim-arduino'}
+    use { 'stevearc/vim-arduino' }
 
     -- hologram
-    use {'edluffy/hologram.nvim'}
+    use { 'edluffy/hologram.nvim' }
 end)

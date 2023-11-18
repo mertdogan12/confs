@@ -38,7 +38,7 @@ return require('packer').startup(function(use)
                 },
             })
 
-           vim.cmd.colorscheme 'github_dark'
+            vim.cmd.colorscheme 'github_dark'
         end,
     })
 

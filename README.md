@@ -26,10 +26,12 @@ curl https://dotfiles.dogan.at/install.sh | bash -s -- -s
 - [x]  wofi - installation
 - [x]  kitty - installation
 - [x]  hyprland - intallation, config files
-- [ ]  Wallpapers / hyprpaper
+- [ ]  Wallpapers / swww
   - [x] config files
   - [ ] installation
 - [ ]  fonts
     - [x]  install fontconifg
     - [ ]  install nerd hack font
-- [ ]  Firefox installation + as default browser
+- [ ] Librewolf installation + as default browser
+- [ ] swaylock
+- [ ] install eww
